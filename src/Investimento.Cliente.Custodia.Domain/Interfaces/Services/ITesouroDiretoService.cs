@@ -6,6 +6,6 @@ namespace Investimento.Cliente.Custodia.Domain.Interfaces.Services
 {
     public interface ITesouroDiretoService
     {
-        Task<List<Entities.Investimento>> GetTesourosDiretosByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource = null);
+        Task<List<Entities.Investimento>> GetTesourosDiretosByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken = null);
     }
 }

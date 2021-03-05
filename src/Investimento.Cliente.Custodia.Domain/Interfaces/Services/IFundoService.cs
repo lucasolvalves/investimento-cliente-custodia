@@ -6,6 +6,6 @@ namespace Investimento.Cliente.Custodia.Domain.Interfaces.Services
 {
     public interface IFundoService
     {
-        Task<List<Entities.Investimento>> GetFundosByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource);
+        Task<List<Entities.Investimento>> GetFundosByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken);
     }
 }

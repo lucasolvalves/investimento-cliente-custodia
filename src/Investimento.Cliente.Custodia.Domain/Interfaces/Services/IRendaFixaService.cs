@@ -6,6 +6,6 @@ namespace Investimento.Cliente.Custodia.Domain.Interfaces.Services
 {
     public interface IRendaFixaService
     {
-        Task<List<Entities.Investimento>> GetRendasFixasByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource = null);
+        Task<List<Entities.Investimento>> GetRendasFixasByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken = null);
     }
 }

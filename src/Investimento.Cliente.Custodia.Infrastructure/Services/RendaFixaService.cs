@@ -17,12 +17,12 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
         public RendaFixaService(IHttpClientFactory httpFactory, ILogger logger, IConfiguration configuration)
                             : base(httpFactory, logger, configuration) { }
 
-        public async Task<List<Domain.Entities.Investimento>> GetRendasFixasByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource = null)
+        public async Task<List<Domain.Entities.Investimento>> GetRendasFixasByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken = null)
         {
             try
             {
                 var listRendasFixas = new List<Domain.Entities.Investimento>();
-                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:RendaFixa")?.Value, accountId), cancellationTokenSource);
+                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:RendaFixa")?.Value, accountId), cancellationToken);
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
@@ -35,7 +35,9 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                throw ex;
+                cancellationToken.Cancel();
+                _logger.Critical("Exception: erro ao realizar uma chamada HTTP:" + ex);
+                return null;
             }
         }
     }

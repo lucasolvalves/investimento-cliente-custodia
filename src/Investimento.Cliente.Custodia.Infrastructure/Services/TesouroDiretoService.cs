@@ -17,12 +17,12 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
         public TesouroDiretoService(IHttpClientFactory httpFactory, ILogger logger, IConfiguration configuration)
                                     : base(httpFactory, logger, configuration) { }
 
-        public async Task<List<Domain.Entities.Investimento>> GetTesourosDiretosByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource = null)
+        public async Task<List<Domain.Entities.Investimento>> GetTesourosDiretosByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken = null)
         {
             try
             {
                 var listTesourosDiretos = new List<Domain.Entities.Investimento>();
-                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:TesouroDireto")?.Value, accountId), cancellationTokenSource);
+                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:TesouroDireto")?.Value, accountId), cancellationToken);
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
@@ -34,7 +34,9 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                throw ex;
+                cancellationToken.Cancel();
+                _logger.Critical("Exception: erro ao realizar uma chamada HTTP:" + ex);
+                return null;
             }
         }
     }

@@ -17,12 +17,12 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
         public FundoService(IHttpClientFactory httpFactory, ILogger logger, IConfiguration configuration)
                             : base(httpFactory, logger, configuration) { }
 
-        public async Task<List<Domain.Entities.Investimento>> GetFundosByAccountIdAsync(long accountId, CancellationTokenSource cancellationTokenSource)
+        public async Task<List<Domain.Entities.Investimento>> GetFundosByAccountIdAsync(long accountId, CancellationTokenSource cancellationToken)
         {
             try
             {
                 var listFundos = new List<Domain.Entities.Investimento>();
-                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:Fundo")?.Value, accountId), cancellationTokenSource);
+                var jsonString = await ConsumeEndpoint("investimento", string.Format(_configuration.GetSection("AppSettings:InvestimentoServicos:Fundo")?.Value, accountId), cancellationToken);
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
@@ -35,7 +35,9 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
             }
             catch (Exception ex)
             {
-                throw ex;
+                cancellationToken.Cancel();
+                _logger.Critical("Exception: erro ao realizar uma chamada HTTP:" + ex);
+                return null;
             }
         }
     }

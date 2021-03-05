@@ -26,9 +26,11 @@ namespace Investimento.Cliente.Custodia.Domain.Services
             _cacheService = cacheService;
         }
 
-        public async Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId)
+        public async Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId, CancellationToken cancellationToken = default)
         {
-            var cancellationToken = _cancellationTokenSource.Token;
+            if (cancellationToken == default)
+                cancellationToken = _cancellationTokenSource.Token;
+
             var clientInvestments = await GetClientNewsInvestmentsAsync(accountId, _cancellationTokenSource);
 
             if (!cancellationToken.IsCancellationRequested)
