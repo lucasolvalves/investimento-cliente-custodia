@@ -8,6 +8,6 @@ namespace Investimento.Cliente.Custodia.Domain.Interfaces.Services
 {
     public interface ICustomerService
     {
-        Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId, CancellationToken cancellationToken = default);
+        Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId, CancellationToken? cancellationToken = null);
     }
 }

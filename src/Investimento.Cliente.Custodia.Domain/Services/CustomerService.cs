@@ -26,14 +26,13 @@ namespace Investimento.Cliente.Custodia.Domain.Services
             _cacheService = cacheService;
         }
 
-        public async Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId, CancellationToken cancellationToken = default)
+        public async Task<string> GetConsolidatedInvestmentsByAccountIdAsync(long accountId, CancellationToken? cancellationToken = null)
         {
-            if (cancellationToken == default)
-                cancellationToken = _cancellationTokenSource.Token;
+            var cancelToken = CheckIfTokenIsNull(cancellationToken);
 
             var clientInvestments = await GetClientNewsInvestmentsAsync(accountId, _cancellationTokenSource);
 
-            if (!cancellationToken.IsCancellationRequested)
+            if (!cancelToken.IsCancellationRequested)
                 return await _cacheService.SetAsync(accountId.ToString(), clientInvestments, TimeSpan.FromMinutes(5));
 
             return await _cacheService.GetAsync(accountId.ToString());
@@ -64,6 +63,14 @@ namespace Investimento.Cliente.Custodia.Domain.Services
 
             cliente.CalcularTotalInvestimento();
             return cliente;
+        }
+
+        private CancellationToken CheckIfTokenIsNull(CancellationToken? cancellationToken)
+        {
+            if (cancellationToken == null)
+                return _cancellationTokenSource.Token;
+
+            return cancellationToken.Value;
         }
     }
 }

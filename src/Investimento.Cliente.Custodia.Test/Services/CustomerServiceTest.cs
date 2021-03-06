@@ -2,7 +2,6 @@
 using Investimento.Cliente.Custodia.Domain.Interfaces.Services;
 using Investimento.Cliente.Custodia.Domain.Services;
 using Investimento.Cliente.Custodia.Test.Builders;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -10,7 +9,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Investimento.Cliente.Custodia.Test.Entities
+namespace Investimento.Cliente.Custodia.Test.Services
 {
     [TestClass]
     public class CustomerServiceTest

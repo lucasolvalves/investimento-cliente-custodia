@@ -22,8 +22,4 @@
     <ProjectReference Include="..\Investimento.Cliente.Custodia.Infrastructure\Investimento.Cliente.Custodia.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
