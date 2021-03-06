@@ -20,7 +20,7 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 
 ## DEPENDÊNCIAS
 
-[### Investimento tesouro direto](https://github.com/user/repo/blob/branch/other_file.md)
+###[Investimento tesouro direto](https://github.com/user/repo/blob/branch/other_file.md)
 
 ## SOBRE O AUTOR/ORGANIZADOR
 Lucas de Oliveira Alves<br>
