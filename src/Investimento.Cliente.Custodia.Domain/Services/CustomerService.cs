@@ -60,7 +60,7 @@ namespace Investimento.Cliente.Custodia.Domain.Services
                     default:
                         break;
                 }
-            }, maxDegreeOfParallelism: 10);
+            });
 
             cliente.CalcularTotalInvestimento();
             return cliente;
