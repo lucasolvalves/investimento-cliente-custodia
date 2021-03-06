@@ -19,10 +19,8 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 ![](https://raw.githubusercontent.com/lucasolvalves/investimento-cliente-custodia/main/design_investimento_cliente_cust%C3%B3dia.png)
 
 ## DEPENDÊNCIAS
-### Investimento tesouro direto
-The file name makes its purpose obvious. It starts with a `.` and will 
-show up early in the file tree because the letter "d" is early in the 
-alphabet.
+
+[### Investimento tesouro direto](https://github.com/user/repo/blob/branch/other_file.md)
 
 ## SOBRE O AUTOR/ORGANIZADOR
 Lucas de Oliveira Alves<br>
