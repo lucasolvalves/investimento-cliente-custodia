@@ -1,7 +1,7 @@
 # Investimento Cliente Custódia - Guia de início rápido
 
 ### O QUE É
-Serviço responsável por consolidar todas as custódias de um cliente, na qual realizará integração com outros serviços.
+Serviço responsável por consolidar todas as custódias dos clientes, na qual realizará integração com outros serviços.
 
 ### A QUEM SE DESTINA / OBJETIVO
 Este projeto se trata de um case técnico abordado pela empresta XPTO. 
