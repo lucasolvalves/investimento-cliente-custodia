@@ -1,23 +1,23 @@
-# Investimento Cliente CustÛdia - Guia de inÌcio r·pido
+# Investimento Cliente Cust√≥dia - Guia de in√≠cio r√°pido
 
-### O QUE …
-ServiÁo respons·vel por consolidar todas as custÛdias de um cliente, na qual realizar· integraÁ„o com outros serviÁos.
+### O QUE √â
+Servi√ßo respons√°vel por consolidar todas as cust√≥dias de um cliente, na qual realizar√° integra√ß√£o com outros servi√ßos.
 
 ### A QUEM SE DESTINA / OBJETIVO
-Este projeto se trata de um case tÈcnico abordado pela empresta XPTO. 
-O objetivo deste documento È facilitar a compreenÁ„o do escopo da soluÁ„o e de como funciona.
+Este projeto se trata de um case t√©cnico abordado pela empresta XPTO. 
+O objetivo deste documento √© facilitar a compreen√ß√£o do escopo da solu√ß√£o e de como funciona.
 
 ## INICIANDO...
 - `git clone https://github.com/lucasolvalves/investimento-cliente-custodia.git`
 
-## PR…-REQUISITOS
+## PR√â-REQUISITOS
 - `dotnet --version`
-VocÍ dever· ver a indicaÁ„o da vers„o do dotnet instalado.
-Observe que para executar o projeto È necessario possuir a 5.0.
+Voc√™ dever√° ver a indica√ß√£o da vers√£o do dotnet instalado.
+Observe que para executar o projeto √© necessario possuir a 5.0.
 
 ### DESENHO DA ARQUITETURA
 ![](https://raw.githubusercontent.com/lucasolvalves/investimento-cliente-custodia/main/Design%20investimento%20cliente%20cust%C3%B3dia.png)
 
 #### SOBRE O AUTOR/ORGANIZADOR
-Lucas de Oliveira Alves
+Lucas de Oliveira Alves<br>
 lucas.olvalveso@gmail.com
