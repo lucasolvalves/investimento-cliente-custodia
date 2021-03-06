@@ -18,6 +18,12 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 ## DESENHO DA ARQUITETURA
 ![](https://raw.githubusercontent.com/lucasolvalves/investimento-cliente-custodia/main/design_investimento_cliente_cust%C3%B3dia.png)
 
-#### SOBRE O AUTOR/ORGANIZADOR
+## DEPENDÊNCIAS
+### Obvious
+The file name makes its purpose obvious. It starts with a `.` and will 
+show up early in the file tree because the letter "d" is early in the 
+alphabet.
+
+## SOBRE O AUTOR/ORGANIZADOR
 Lucas de Oliveira Alves<br>
 lucas.olvalveso@gmail.com
