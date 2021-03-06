@@ -19,11 +19,11 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 
 `GET /api/v1/clientes/{accountId}/investimentos_consolidados`
 
-**Parameters**
+**Parâmetros**
 
 |          Name | Required |  Type   | Description                                                                                                                                                           |
 | -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `product` | required | string  | The product for which to perform the action. <br/><br/> Supported values: `publish` or `analyze`.
+|     `accountId` | required | long  | Identificador do cliente.
 
     curl -X GET "https://investimentoclientecustodia.azurewebsites.net/api/v1/clientes/123456/investimentos_consolidados" -H  "accept: application/json"
 
