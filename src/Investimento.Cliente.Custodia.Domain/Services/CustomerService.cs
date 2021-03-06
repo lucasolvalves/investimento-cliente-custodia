@@ -33,7 +33,7 @@ namespace Investimento.Cliente.Custodia.Domain.Services
             var clientInvestments = await GetClientNewsInvestmentsAsync(accountId, _cancellationTokenSource);
 
             if (!cancelToken.IsCancellationRequested)
-                return await _cacheService.SetAsync(accountId.ToString(), clientInvestments, TimeSpan.FromMinutes(5));
+                return await _cacheService.SetAsync(accountId.ToString(), clientInvestments, TimeSpan.FromHours(12));
 
             return await _cacheService.GetAsync(accountId.ToString());
         }
