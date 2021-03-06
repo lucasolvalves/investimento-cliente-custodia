@@ -26,7 +26,10 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
+                {
+                    cancellationToken.Cancel();
                     return listFundos;
+                }
 
                 var fundosViewModel = JsonConvert.DeserializeObject<List<FundoViewModel>>(items);
                 fundosViewModel?.ForEach(x => listFundos.Add(new Domain.Entities.Investimento(x.Nome, x.ValorInvestido, x.ValorTotal, x.DataDeVencimento, x.Ir, x.ValorResgate)));

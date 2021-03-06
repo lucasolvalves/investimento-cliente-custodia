@@ -26,7 +26,10 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
+                {
+                    cancellationToken.Cancel();
                     return listTesourosDiretos;
+                }
 
                 var tesourosDiretosViewModel = JsonConvert.DeserializeObject<List<TesouroDiretoViewModel>>(items);
                 tesourosDiretosViewModel?.ForEach(x => listTesourosDiretos.Add(new Domain.Entities.Investimento(x.Nome, x.ValorInvestido, x.ValorTotal, x.DataDeVencimento, x.Ir, x.ValorResgate)));

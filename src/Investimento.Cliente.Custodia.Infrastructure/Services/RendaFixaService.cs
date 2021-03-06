@@ -26,7 +26,10 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
                 var items = jsonString.JsonGetByName("data");
 
                 if (string.IsNullOrEmpty(items))
+                {
+                    cancellationToken.Cancel();
                     return listRendasFixas;
+                }
 
                 var rendasFixasViewModel = JsonConvert.DeserializeObject<List<RendaFixaViewModel>>(items);
                 rendasFixasViewModel?.ForEach(x => listRendasFixas.Add(new Domain.Entities.Investimento(x.Nome, x.ValorInvestido, x.ValorTotal, x.DataDeVencimento, x.Ir, x.ValorResgate)));
