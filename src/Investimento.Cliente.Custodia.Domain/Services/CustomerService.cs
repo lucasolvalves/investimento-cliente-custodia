@@ -1,4 +1,5 @@
-﻿using Investimento.Cliente.Custodia.Domain.Interfaces.Repositories;
+﻿using Dasync.Collections;
+using Investimento.Cliente.Custodia.Domain.Interfaces.Repositories;
 using Investimento.Cliente.Custodia.Domain.Interfaces.Services;
 using System;
 using System.Threading;
@@ -43,9 +44,9 @@ namespace Investimento.Cliente.Custodia.Domain.Services
             var cliente = _customerRepository.GetInvestmentsByAccountIdAsync(accountId);
 
             //Está partindo do pressuposto que os serviços já são otimizados com estrategia de cache
-            foreach (var tipoInvestimento in cliente.TiposInvestimento)
+            await cliente.TiposInvestimento.ParallelForEachAsync(async item =>
             {
-                switch (tipoInvestimento)
+                switch (item)
                 {
                     case Enums.ETipoInvestimento.TD:
                         cliente.AddInvestimentos(await _tesouroDiretoService.GetTesourosDiretosByAccountIdAsync(accountId, cancellationTokenSource));
@@ -59,7 +60,7 @@ namespace Investimento.Cliente.Custodia.Domain.Services
                     default:
                         break;
                 }
-            }
+            }, maxDegreeOfParallelism: 10);
 
             cliente.CalcularTotalInvestimento();
             return cliente;
