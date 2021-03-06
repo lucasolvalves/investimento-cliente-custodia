@@ -21,9 +21,9 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 
 **Parâmetros**
 
-|          Name | Required |  Type   | Description                                                                                                                                                           |
+|          Nome | Obrigatório |  Tipo   | Descrição                                                                                                                                                           |
 | -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `accountId` | required | long  | Identificador do cliente.
+|     `accountId` | sim | long  | Identificador do cliente.
 
     curl -X GET "https://investimentoclientecustodia.azurewebsites.net/api/v1/clientes/123456/investimentos_consolidados" -H  "accept: application/json"
 
