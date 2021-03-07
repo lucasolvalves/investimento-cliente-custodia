@@ -1,11 +1,11 @@
 # Investimento Cliente Custódia - Guia de início rápido
 
 ## O QUE É
-Serviço responsável por consolidar todas as custódias dos clientes, na qual realizará integração com outros serviços.
+Serviço responsável por consolidar todas as custódias dos clientes, o qual realizará integração com outros serviços.
 
 ## A QUEM SE DESTINA / OBJETIVO
 Este projeto se trata de um case técnico abordado pela empresta XPTO. 
-O objetivo deste documento é facilitar a compreenção do escopo da solução e de como funciona.
+O objetivo deste documento é facilitar a compreenção do escopo da solução e de seu funcionamento.
 
 ## INICIANDO...
 - `git clone https://github.com/lucasolvalves/investimento-cliente-custodia.git`
