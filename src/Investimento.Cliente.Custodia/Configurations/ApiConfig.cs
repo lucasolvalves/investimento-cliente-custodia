@@ -43,6 +43,8 @@ namespace Investimento.Cliente.Custodia.Configurations
             services.AddHealthChecksUI()
                 .AddInMemoryStorage();
 
+            services.AddApplicationInsightsTelemetry(configuration);
+
             return services;
         }
 
