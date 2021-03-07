@@ -3,7 +3,7 @@
 ## O QUE É
 Serviço responsável por consolidar todas as custódias dos clientes, o qual realizará integração com outros serviços.
 
-## A QUEM SE DESTINA / OBJETIVO
+## OBJETIVO
 Este projeto se trata de um case técnico abordado pela empresta XPTO. 
 O objetivo deste documento é facilitar a compreenção do escopo da solução e de seu funcionamento.
 
