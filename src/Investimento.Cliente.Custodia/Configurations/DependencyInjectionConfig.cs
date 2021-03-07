@@ -29,7 +29,9 @@ namespace Investimento.Cliente.Custodia.Configurations
             {
                 options.DefaultRequestHeaders.Add("Accept", "application/json");
             })
-            .AddPolicyHandler(PollyConfiguration.GetRetryPolicy());
+            .AddPolicyHandler(PollyConfiguration.GetRetryPolicy())
+            .AddPolicyHandler(PollyConfiguration.GetFallback())
+            .AddPolicyHandler(PollyConfiguration.GetCircuitBreakerPolicy());
 
             return services;
         }

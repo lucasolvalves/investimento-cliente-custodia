@@ -29,13 +29,13 @@ namespace Investimento.Cliente.Custodia.Infrastructure.Services
                 {
                     var body = await httpResponse.Content?.ReadAsStringAsync();
 
-                    if (!httpResponse.IsSuccessStatusCode)
-                        cancellationToken.Cancel();
-
-                    _logger.Info("RequestUrl: " + httpResponse.RequestMessage.RequestUri?.ToString() +
-                                "\nMethod: " + httpResponse.RequestMessage.Method?.ToString() +
-                                "\nResponseStatusCode: " + httpResponse?.StatusCode +
-                                "\nResponseBody: " + body, "ConsomeEndpoint", 20);
+                    if (httpResponse?.RequestMessage != null)
+                    {
+                        _logger.Info("RequestUrl: " + httpResponse.RequestMessage.RequestUri?.ToString() +
+                                    "\nMethod: " + httpResponse.RequestMessage.Method?.ToString() +
+                                    "\nResponseStatusCode: " + httpResponse?.StatusCode +
+                                    "\nResponseBody: " + body, "ConsomeEndpoint", 20);
+                    }
 
                     return !string.IsNullOrWhiteSpace(body) ? body : null;
                 }
